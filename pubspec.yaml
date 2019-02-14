@@ -23,6 +23,12 @@ dependencies:
   json_annotation: ^1.2.0
   build_runner: ^1.0.0
   json_serializable: ^1.5.1
+  flutter_swiper : ^1.0.2
+  cached_network_image: ^0.5.0
+  flukit:
+    git:
+      url: git://github.com/flutterchina/flukit.git
+      path: package_src/
 dev_dependencies:
   flutter_test:
     sdk: flutter
