@@ -3,6 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
+import 'package:flukit/flukit.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:my_flutter_app/ui/ProgressView.dart';
 class ChatView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -40,9 +43,13 @@ class _ChatPage  extends State<ChatView>{
           : Padding(
         padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 10.0),
         child: ListView.builder(
-          itemCount: movies.length,
+          itemCount: movies.length+1,
           itemBuilder: (BuildContext context, int index) {
-            return MovieCard(movies[index]);
+            if(index==0){
+              return BannerWidget(movies);
+            }else {
+              return MovieCard(movies[index-1]);
+            }
           },
         ),
       ),
@@ -54,10 +61,40 @@ class _ChatPage  extends State<ChatView>{
     _getDatas();
   }
 }
+class BannerWidget extends StatelessWidget{
+  List movies;
+  BannerWidget(this.movies);
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new AspectRatio(
+      aspectRatio: 16.0 / 9.0,
+      child: Swiper(
+        indicatorAlignment: AlignmentDirectional.topEnd,
+        circular: true,
+        interval: const Duration(seconds: 2),
+        indicator: NumberSwiperIndicator(),
+        children: movies.map((model) {
+          return new InkWell(
+            onTap: () {
+            },
+            child: new CachedNetworkImage(
+              fit: BoxFit.fill,
+              imageUrl: model.pic,
+              errorWidget: new Icon(Icons.error),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+
+  }
+
+}
 
 class MovieCard extends StatelessWidget {
   Movie movie;
-
   MovieCard(this.movie);
 
   @override
@@ -119,5 +156,18 @@ class MovieCard extends StatelessWidget {
      }
 
 
+}
+class NumberSwiperIndicator extends SwiperIndicator {
+  @override
+  Widget build(BuildContext context, int index, int itemCount) {
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.black45, borderRadius: BorderRadius.circular(20.0)),
+      margin: EdgeInsets.only(top: 10.0, right: 5.0),
+      padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
+      child: Text("${++index}/$itemCount",
+          style: TextStyle(color: Colors.white70, fontSize: 11.0)),
+    );
+  }
 }
 
