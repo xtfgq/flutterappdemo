@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_flutter_app/person/PersonPage.dart';
 import 'ContactView.dart';
 import 'package:my_flutter_app/MeView.dart';
 import 'ChatView.dart';
@@ -17,7 +18,7 @@ class _HomePage extends State<HomePage> {
   new BottomNavigationBarItem(icon: new Icon(Icons.perm_contact_calendar,color: Colors.grey,),title: new Text("通讯录"),),
   new BottomNavigationBarItem(icon: new Icon(Icons.perm_identity,color: Colors.grey),title: new Text("我"),),
   ];
-  final List<StatefulWidget> vcSet = [new ChatView(),new ContactView(),new MeView()];
+  final List<StatefulWidget> vcSet = [new ChatView(),new ContactView(),new PersonPager()];
   int _sindex=0;
   @override
   Widget build(BuildContext context) {
