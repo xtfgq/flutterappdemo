@@ -9,6 +9,13 @@ class MeView extends StatefulWidget {
 }
 
 class _MePage  extends State<MeView>{
+  List<String> titles;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    titles = List<String>();
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
