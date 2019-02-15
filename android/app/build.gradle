@@ -38,14 +38,33 @@ android {
         targetSdkVersion 27
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        manifestPlaceholders = [
+                AMAP_KEY : "637cb905d8e2c8c99a8fe0c15889c00e" /// 高德地图key
+        ]
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
+    signingConfigs {
+        release {
+            storeFile file("office.jks")
+            storePassword "123456"
+            keyAlias "office"
+            keyPassword "123456"
+        }
+    }
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            minifyEnabled false                     //混淆开启
+            signingConfig signingConfigs.release
+            proguardFiles  'proguard-rules.pro','proguard.cfg'
+        }
+        debug {
+            minifyEnabled false                     //混淆关闭
+            signingConfig signingConfigs.release
+            proguardFiles 'proguard-rules.pro','proguard.cfg'
         }
     }
 }

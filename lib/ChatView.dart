@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:flukit/flukit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:my_flutter_app/ImageDetail.dart';
 import 'package:my_flutter_app/ui/ProgressView.dart';
 class ChatView extends StatefulWidget {
   @override
@@ -103,13 +104,19 @@ class MovieCard extends StatelessWidget {
     return Card(
         child: InkWell(
           onTap: () {
+            Navigator
+                .of(context)
+                .push(new MaterialPageRoute(builder: (_) {
+              return new ImageViewDetail(url:movie.pic);
+            }));
             print(movie.pic);
           },
           child: Column(
               children: <Widget>[
-                Image.network(
-                  movie.pic,
-                  fit: BoxFit.cover,
+                new CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  imageUrl: movie.pic,
+                  errorWidget: new Icon(Icons.error),
                 ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
