@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/person/view/ArcBannerImage.dart';
+import 'package:my_flutter_app/ui/Login_Page.dart';
 class PersonPager extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -18,55 +19,62 @@ class _PersonPagerState extends State<PersonPager> {
 //        ),
       body:ListView(
         children: <Widget>[
-          new Container(
-            child: Stack(
-              alignment: Alignment(0.0, 1.0),
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 25.0),
-                  child: ArcBannerImage('images/haha.png'),
-
+          InkWell(
+            onTap:() =>Navigator.push(
+                   context,
+                   new MaterialPageRoute(builder: (context) => new LoginPage()),
                 ),
-                Positioned(
-                  bottom: 0.0,
-                  left: 16.0,
-                  right: 16.0,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        child: Column(
-                          children: <Widget>[
-                            Image.asset(
-                              'images/my_header.png',
-                              width: 70.0,
-                              height: 70.0,
-                            ),
-                            Container(
-                              margin: new EdgeInsets.only(top: 10.0),
-                              child: Dismissible(
-                                key: Key('a'),
-                                direction: DismissDirection.vertical,
-                                resizeDuration: Duration(milliseconds: 200),
-                                child: new Text(
-                                  '请点击登录',
-                                  style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+            child:  Container(
+              child: Stack(
+                alignment: Alignment(0.0, 1.0),
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 25.0),
+                    child: ArcBannerImage('images/haha.png'),
+
+                  ),
+                  Positioned(
+                    bottom: 0.0,
+                    left: 16.0,
+                    right: 16.0,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          child: Column(
+                            children: <Widget>[
+                              Image.asset(
+                                'images/my_header.png',
+                                width: 70.0,
+                                height: 70.0,
+                              ),
+                              Container(
+                                margin: new EdgeInsets.only(top: 10.0),
+                                child: Dismissible(
                                   key: Key('a'),
+                                  direction: DismissDirection.vertical,
+                                  resizeDuration: Duration(milliseconds: 200),
+                                  child: new Text(
+                                    '请点击登录',
+                                    style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold),
+                                    key: Key('a'),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
+
           //第二个部分
           Container(
             margin: new EdgeInsets.only(top: 30.0, bottom: 1.0),
@@ -225,6 +233,7 @@ class _PersonPagerState extends State<PersonPager> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
+
                     Icon(
                       Icons.local_play,
                       color: Color(0xFFFF80AB),
@@ -301,6 +310,7 @@ class _PersonPagerState extends State<PersonPager> {
                   ],
                 ),
                 Column(
+
                   children: <Widget>[
                     Icon(
                       Icons.card_membership,

@@ -32,6 +32,7 @@ dependencies:
   simple_permissions: ^0.1.9
   easy_alert:
   amap_location:
+  groovin_material_icons: ^1.1.5
   flukit:
     git:
       url: git://github.com/flutterchina/flukit.git
@@ -58,6 +59,10 @@ flutter:
    - images/header_my.png
    - images/haha.png
    - images/my_header.png
+   - images/icon_circle.png
+   - images/icon_msg.png
+   - images/icon_sina.png
+   - images/icon_wx.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
