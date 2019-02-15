@@ -23,6 +23,7 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+
       bottomNavigationBar: new BottomNavigationBar(items: listSet,type: BottomNavigationBarType.fixed,
         onTap: (int index){
           setState(() {

@@ -39,6 +39,7 @@ class _ChatPage  extends State<ChatView>{
         title: Text('首页'),
         centerTitle:true,
       ),
+
       body: movies == null
           ? Center(child: CircularProgressIndicator())
           : Padding(
