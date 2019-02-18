@@ -1,4 +1,6 @@
 import 'package:my_flutter_app/mvp/presenter/StoriesPresenter.dart';
+import 'package:my_flutter_app/mvp/repository/StoriesRepository.dart';
+import 'package:my_flutter_app/mvp/repository/StoriesRepositoryImpl.dart';
 
 class StoriesPresenterImpl implements StoriesPresenter {
 

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:http/http.dart';
+
 import 'package:my_flutter_app/common/Constant.dart';
 import 'package:my_flutter_app/model/BaseModel.dart';
 import 'package:my_flutter_app/model/HotNewsModel.dart';
