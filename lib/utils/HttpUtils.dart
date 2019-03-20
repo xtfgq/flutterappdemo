@@ -1,4 +1,6 @@
 //导入网络请求相关的包
+import 'dart:_http';
+
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
@@ -12,14 +14,14 @@ class HttpUtils {
   Future<dynamic> get() async {
     //http://39.105.89.144:8081/TAS000010001?pageSize=1&currentPage=1
     //https://qy.healthinfochina.com:8080/DOC000010041?ishot=1&pageSize=10&currentPage=1
-    /*
-      var httpClient = new HttpClient();
-  var uri = new Uri.http(
-      'example.com', '/path1/path2', {'param1': '42', 'param2': 'foo'});
-  var request = await httpClient.getUrl(uri);
-  var response = await request.close();
-  var responseBody = await response.transform(UTF8.decoder).join();
-    * */
+
+//      var httpClient = new HttpClient();
+//  var uri = new Uri.http(
+//      'example.com', '/path1/path2', {'param1': '42', 'param2': 'foo'});
+//  var request = await httpClient.postUrl(uri);
+//  var response = await request.close();
+//  var responseBody = await response.transform(UTF8.decoder).join();
+
     print('url$url');
     await http.get(url).then((http.Response response) {
       var data = json.decode(response.body);

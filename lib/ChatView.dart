@@ -20,7 +20,7 @@ class _ChatPage  extends State<ChatView>{
   Future<String> _getDatas() async {
     String url =
         "https://www.bilibili.com/index/recommend.json";
-    String request = await http.get(url).then((http.Response response){
+    String request = await http.post(url).then((http.Response response){
       print(response.body);
       List list = json.decode(response.body)['list'];
       print(list);

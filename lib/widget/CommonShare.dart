@@ -15,7 +15,9 @@ class CommonShare {
                 padding: const EdgeInsets.all(4.0),
                 children: menus_share.map((Menu m) {
                   return new GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+
+                    },
                     child: new Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[

@@ -33,10 +33,12 @@ dependencies:
   easy_alert:
   amap_location:
   groovin_material_icons: ^1.1.5
-  flukit:
-    git:
-      url: git://github.com/flutterchina/flukit.git
-      path: package_src/
+  dio: ^1.0.4
+  #简单透明占位符
+  transparent_image: ^0.1.0
+  #webview
+  flutter_webview_plugin: ^0.2.1
+  flukit: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
